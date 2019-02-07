@@ -1,0 +1,47 @@
+#include <iostream>
+#include "line.h"
+#include "point.h"
+using namespace std;
+
+int main()
+{
+	Line line;
+	Point value[3];
+	double distance, slope;
+
+	for (int i = 0; i<4; i++) {
+		cout << "Enter a Value " << i << ":" << endl;
+		cin >> value[i];
+	}
+	for (int i = 0; i<4; i++)
+		cout << value[i] << endl;
+	
+	line.setLine(value[0].getX(), value[0].getY(), value[1].getX(), value[1].getY());
+	line.Print();
+	
+	distance = line.distance();
+	cout << "\nThe distance of first line is: " << distance << endl;
+	
+	slope = line.slope();
+	cout << "\nSlope of the first line is: " << slope << endl;
+	
+	line.setLine(value[2].getX(), value[2].getY(), value[3].getX(), value[3].getY());
+	line.Print();
+	
+	distance = line.distance();
+	cout << "\nThe distance of second line is: " << distance << endl;
+	
+	slope = line.slope();
+	cout << "\nSlope of the second line is: " << slope << endl;
+    
+    if((value[0] == value[2])&&(value[1] == value[3]))
+    {
+        cout<<"Lines are Equal"<<endl;
+        
+    }
+    if((value[0] != value[2])&&(value[1] != value[3]))
+    {
+        cout<<"Lines are not Equal"<<Endl;
+    }
+	return 0;
+}
